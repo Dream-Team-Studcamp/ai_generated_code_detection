@@ -32,7 +32,7 @@ for repo in repositories:
     print(f'Extracted {len(functions)} functions')
     k = 0
     for i, code in enumerate(functions):
-        human, robot = check_code(code)
+        robot, human = check_code(code)
         human_rounded = round(100 * human, 2)
         robot_rounded = round(100 - human_rounded, 2)
         written_by = 'Human' if human_rounded > robot_rounded else 'AI'
