@@ -20,7 +20,7 @@ st.text('F1 score on 800 production codes was 0.95')
 user_input = st.text_area('Enter code:', max_chars=2048)
 
 if st.button('Check'):
-    human, robot = check_code(user_input)
+    robot, human = check_code(user_input)
     human_rounded = round(100 * human, 2)
     robot_rounded = round(100 - human_rounded, 2)
     written_by = 'Human' if human_rounded > robot_rounded else 'AI'
