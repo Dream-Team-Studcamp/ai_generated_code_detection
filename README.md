@@ -11,3 +11,8 @@ pip install -r requirements.txt
 ```shell
 streamlit app.py
 ```
+
+## Try it out
+
+https://ai-generated-code-detection.streamlit.app
+
