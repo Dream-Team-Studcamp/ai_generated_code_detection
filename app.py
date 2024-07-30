@@ -34,7 +34,7 @@ tab1, tab2 = st.tabs(['Check code', 'Scan repository'])
 
 with tab1:
     st.header('Check code')
-    user_input = st.text_area('Enter code:', max_chars=2048)
+    user_input = st.text_area('Enter code:', max_chars=2048, height=400)
 
     if st.button('Check'):
         robot, human = check_code(user_input)
