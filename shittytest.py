@@ -17,12 +17,12 @@ def check_code(code: str) -> tuple[float, float]:
     embedded_code = embedder.encode(code)
     return classifier.predict_proba([embedded_code])[0]
 
-repositories = [
+repositories = [                                          #     AI / All
     'https://github.com/TheAlgorithms/C.git',             # ==== 81/1226 ====
-    'https://github.com/Genymobile/scrcpy.git',           # ==== 34/657 ====
-    'https://github.com/curl/curl.git',                   # ==== 5/3516 ====
-    'https://github.com/itookyourboo/graph-database.git', # ==== 26/564 ====
-    'https://github.com/Huawei/Huawei_LiteOS_Kernel.git'  # ==== 16/119 ====
+    'https://github.com/Genymobile/scrcpy.git',           # ==== 34/657  ====
+    'https://github.com/curl/curl.git',                   # ====  5/3516 ====
+    'https://github.com/itookyourboo/graph-database.git', # ==== 26/564  ====
+    'https://github.com/Huawei/Huawei_LiteOS_Kernel.git'  # ==== 16/119  ====
 ]
 
 for repo in repositories:
@@ -32,7 +32,7 @@ for repo in repositories:
     print(f'Extracted {len(functions)} functions')
     k = 0
     for i, code in enumerate(functions):
-        human, robot = check_code(code)
+        robot, human = check_code(code)
         human_rounded = round(100 * human, 2)
         robot_rounded = round(100 - human_rounded, 2)
         written_by = 'Human' if human_rounded > robot_rounded else 'AI'
