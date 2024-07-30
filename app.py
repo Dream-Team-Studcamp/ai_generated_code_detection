@@ -4,10 +4,20 @@ import streamlit as st
 from sentence_transformers import SentenceTransformer
 from sklearn.linear_model import LogisticRegression
 
-with open('pickled_model.pkl', 'rb') as file:
-    classifier: LogisticRegression = pickle.load(file)
 
-embedder = SentenceTransformer('microsoft/graphcodebert-base', trust_remote_code=True)
+@st.cache
+def load_model() -> LogisticRegression:
+    with open('pickled_model.pkl', 'rb') as file:
+        return pickle.load(file)
+
+
+@st.cache
+def load_embedder() -> SentenceTransformer:
+    return SentenceTransformer('microsoft/graphcodebert-base', trust_remote_code=True)
+
+
+classifier = load_model()
+embedder = load_embedder()
 
 
 def check_code(code: str) -> tuple[float, float]:
