@@ -5,13 +5,13 @@ from sentence_transformers import SentenceTransformer
 from sklearn.linear_model import LogisticRegression
 
 
-@st.cache
+@st.cache_resource
 def load_model() -> LogisticRegression:
     with open('pickled_model.pkl', 'rb') as file:
         return pickle.load(file)
 
 
-@st.cache
+@st.cache_resource
 def load_embedder() -> SentenceTransformer:
     return SentenceTransformer('microsoft/graphcodebert-base', trust_remote_code=True)
 
