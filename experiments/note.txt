@@ -1,0 +1,1 @@
+Модель, которая graphcodebert-logreg, можно найти тут: https://huggingface.co/sonyaleaf/synthetic-cpp-code-detection/tree/main
